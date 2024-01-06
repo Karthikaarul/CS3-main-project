@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% load tailwind_filters %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+    <div class="flex flex-col items-center justify-center w-full pt-12 pb-12">
+        <h2 class="mb-2 text-2xl font-semibold tracking-wide text-gray-700">Log in</h2>
+        <form method="post" class="max-w-lg p-12 mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn-interaction"
+                    type="submit">Log in
+            </button>
+            <a class="pl-2 text-base font-semibold text-gray-500" href="{% url 'account_reset_password' %}">Forgot
+                Password?</a>
+        </form>
+
+    </div>
+
+
+{% endblock content %}

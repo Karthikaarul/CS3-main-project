@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block title %}CRUD Delete{% endblock %}
+
+{% block content %}
+    <div class="pt-24 text-center">
+        <div class="w-1/2 py-24 mx-auto bg-white rounded-lg">
+            <form method="post">
+                {% csrf_token %}
+                <div class="text-lg">Are you sure you want to delete the following object?</div>
+                <div class="py-8 text-xl"><b>{{ object }}</b></div>
+                <button type="submit"
+                        class="btn-submit mt-6">
+                    Ok
+                </button>
+                <a href="javascript:history.back()"
+                   class="btn-cancel">Cancel</a>
+            </form>
+        </div>
+
+    </div>
+{% endblock content %}

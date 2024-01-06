@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load tailwind_filters %}
+
+{% block title %}CRUD Update{% endblock %}
+
+{% block content %}
+    <div class="pt-12 text-center">
+        <div class="w-1/2 py-8 mx-auto bg-white rounded-lg">
+            <div class="w-2/3 mx-auto text-center mt-8">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="text-lg">Editing the following object</div>
+                    <div class="py-8 text-xl"><b>{{ object }}</b></div>
+                    <div class="text-left">
+                        {{ form|crispy }}
+                    </div>
+                    <button type="submit"
+                            class="btn-submit mt-6">
+                        Save
+                    </button>
+                    <a href="javascript:window.history.back()"
+                       class="btn-cancel">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
